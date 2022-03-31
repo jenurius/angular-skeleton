@@ -1,0 +1,78 @@
+{
+    "root": true,
+    "ignorePatterns": ["projects/**/*"],
+    "overrides": [
+        {
+            "files": ["*.ts"],
+            "parserOptions": {
+                "project": ["tsconfig.json"],
+                "createDefaultProgram": true
+            },
+            "extends": [
+                "plugin:@angular-eslint/ng-cli-compat",
+                "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+                "plugin:@angular-eslint/template/process-inline-templates"
+            ],
+            "rules": {
+                "@typescript-eslint/explicit-member-accessibility": [
+                    "off",
+                    {
+                        "accessibility": "explicit"
+                    }
+                ],
+                "@typescript-eslint/member-delimiter-style": [
+                    "off",
+                    {
+                        "multiline": {
+                            "delimiter": "none",
+                            "requireLast": true
+                        },
+                        "singleline": {
+                            "delimiter": "semi",
+                            "requireLast": false
+                        }
+                    }
+                ],
+                "@typescript-eslint/no-explicit-any": "error",
+                "@typescript-eslint/semi": ["off", null],
+                "arrow-parens": ["off", "always"],
+                "guard-for-in": "off",
+                "import/order": "off",
+                "max-len": [
+                    "error",
+                    {
+                        "code": 180,
+                        "ignoreStrings": true
+                    }
+                ],
+                "max-lines": ["error", 1250],
+                "object-shorthand": "off",
+                "prefer-arrow/prefer-arrow-functions": "off",
+                "space-before-function-paren": [
+                    "error",
+                    {
+                        "anonymous": "always",
+                        "asyncArrow": "always",
+                        "named": "never"
+                    }
+                ],
+                "import/no-deprecated": "off", // AA_NOTE: commented off because it took to much time of linting and we dont have any depreciated annotation in our code. keep commented off.
+                "no-underscore-dangle": "off", // AA_NOTE: keep it off for now, deal with it later.
+                "@typescript-eslint/naming-convention": "off", // AA_NOTE: keep it off for now, deal with it later.
+                "@typescript-eslint/member-ordering": "off", // AA_NOTE: keep it off for now, deal with it later.
+                "@typescript-eslint/no-non-null-assertion": "off", // AA_NOTE: keep it off for now, deal with it later.
+                "no-console": ["error", { "allow": ["info", "warn", "debug", "error", "assert", "time", "timeEnd"] }],
+                "@typescript-eslint/no-unused-expressions": ["error", { "allowTernary": true }], // allow ternary operator
+                "jsdoc/check-alignment": "off",
+                "jsdoc/newline-after-description": "off",
+                "jsdoc/no-types": "off",
+                "no-trailing-spaces": "off"
+            }
+        },
+        {
+            "files": ["*.html"],
+            "extends": ["plugin:@angular-eslint/template/recommended"],
+            "rules": {}
+        }
+    ]
+}
